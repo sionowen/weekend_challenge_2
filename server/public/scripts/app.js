@@ -17,6 +17,7 @@ $(document).ready(function(){
     });
 
     $('.button-container').on('click', 'button', function(){
+      $('.person-container').fadeOut('slow', function(){
 
       if($(this).hasClass('next')){
         changeCount(1);
@@ -26,9 +27,8 @@ $(document).ready(function(){
         displayPerson(count);
       }
       showSelected();
-
-      $('.person-container').fadeOut('slow');
-      console.log("Yup");
+      $('.person-container').fadeIn('slow')
+      });
     })
 
     function changeCount(numchange){
