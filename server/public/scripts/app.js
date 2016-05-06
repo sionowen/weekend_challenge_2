@@ -2,7 +2,7 @@ $(document).ready(function(){
   var muArray = [];
   var count = 0;
 
-
+    console.log("Document loaded");
     $.ajax({
       type: "GET",
       url: "/data",
@@ -17,6 +17,7 @@ $(document).ready(function(){
     });
 
     $('.button-container').on('click', 'button', function(){
+
       if($(this).hasClass('next')){
         changeCount(1);
         displayPerson(count);
@@ -25,6 +26,9 @@ $(document).ready(function(){
         displayPerson(count);
       }
       showSelected();
+
+      $('.person-container').fadeOut('slow');
+      console.log("Yup");
     })
 
     function changeCount(numchange){
@@ -39,6 +43,7 @@ $(document).ready(function(){
     }
 
     function displayPerson(count){
+
       $('.name').text('Name: ' + muArray[count].name);
       $('.git_username').text('Github: ' + muArray[count].git_username);
       $('.shoutout').text('shoutout: ' + muArray[count].shoutout);
