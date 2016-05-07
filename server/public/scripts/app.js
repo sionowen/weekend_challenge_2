@@ -34,10 +34,11 @@ $(document).ready(function(){
           showSelected();
         })
       }
-
-
-
+      clearInterval(changeTimer);
+      changeTimer = window.setInterval(autoChange, 10000)
     })
+
+    var changeTimer = window.setInterval(autoChange, 10000);
 
     function changeCount(numchange){
       count += numchange;
@@ -49,6 +50,8 @@ $(document).ready(function(){
 
 
     }
+
+
 
     function displayPerson(count){
 
@@ -66,6 +69,13 @@ $(document).ready(function(){
       $('span:nth-of-type(' + (count + 1) + ')').addClass('selected');
     }
 
-
+    function autoChange(){
+      $('.person-container').fadeOut('slow', function(){
+        changeCount(1);
+        displayPerson(count);
+        $(this).fadeIn('slow');
+        showSelected();
+        })
+      }
 
 });
