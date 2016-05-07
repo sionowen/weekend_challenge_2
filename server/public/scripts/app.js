@@ -17,18 +17,26 @@ $(document).ready(function(){
     });
 
     $('.button-container').on('click', 'button', function(){
-      $('.person-container').fadeOut('slow', function(){
+
 
       if($(this).hasClass('next')){
-        changeCount(1);
-        displayPerson(count);
+        $('.person-container').fadeOut('slow', function(){
+          changeCount(1);
+          displayPerson(count);
+          $(this).fadeIn('slow');
+          showSelected();
+        })
       }else{
-        changeCount(-1);
-        displayPerson(count);
+        $('.person-container').fadeOut('slow', function(){
+          changeCount(-1);
+          displayPerson(count);
+          $(this).fadeIn('slow');
+          showSelected();
+        })
       }
-      showSelected();
-      $('.person-container').fadeIn('slow')
-      });
+
+
+
     })
 
     function changeCount(numchange){
